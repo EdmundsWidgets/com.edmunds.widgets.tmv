@@ -1,0 +1,13 @@
+{
+  "name": "com.edmunds.widgets.tmv",
+  "version": "0.0.1",
+  "description": "Edmunds True Market Value Widget",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
