@@ -52,7 +52,8 @@ module.exports = function(grunt) {
 
         // https://github.com/gruntjs/grunt-contrib-clean
         clean: {
-            build: ['<%= dir.build %>']
+            build: ['<%= dir.build %>'],
+            docs: ['docs/']
         },
 
         // https://github.com/gruntjs/grunt-contrib-jshint
@@ -101,7 +102,20 @@ module.exports = function(grunt) {
         },
 
         // https://github.com/gruntjs/grunt-contrib-watch
-        watch: {}
+        watch: {},
+
+        // https://github.com/gruntjs/grunt-contrib-yuidoc
+        yuidoc: {
+            build: {
+                name: '<%= pkg.name %>',
+                description: '<%= pkg.description %>',
+                version: '<%= pkg.version %>',
+                options: {
+                    paths: 'src/',
+                    outdir: '<%= dir.build %>docs/'
+                }
+            }
+        }
 
     });
 
@@ -114,6 +128,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-yuidoc');
 
     // tasks
     grunt.registerTask('default', 'watch');
@@ -128,7 +143,8 @@ module.exports = function(grunt) {
         'copy:build',
         'less:build',
         'concat:build',
-        'uglify:build'
+        'uglify:build',
+        'yuidoc:build'
     ]);
 
     grunt.registerTask('release', [
