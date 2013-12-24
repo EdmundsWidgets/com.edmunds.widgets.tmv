@@ -5,7 +5,7 @@
 // TMV prototype shortcut
 var proto = TMV.prototype;
 
-$.extend(TMV.prototype, Widget.prototype);
+$.extend(TMV.prototype, EDM.Widget.prototype);
 
 /**
  * Bind events.
