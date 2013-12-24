@@ -108,7 +108,7 @@ module.exports = function(grunt) {
                     banner: '<%= meta.banner %>',
                     report: 'min',
                     sourceMap: '<%= dir.build %>js/tmv.min.map',
-                    sourceMappingURL: 'tmv.min.js'
+                    sourceMappingURL: 'tmv.min.map'
                 },
                 files: {
                     '<%= dir.build %>js/tmv.min.js': '<%= dir.build %>js/tmv.js'
