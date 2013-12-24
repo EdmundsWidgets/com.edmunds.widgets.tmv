@@ -7,13 +7,35 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        meta: {
+            banner: '/*! <%= pkg.description %> - v<%= pkg.version %> */'
+        },
+
         dir: {
             build: 'dist/'
+        },
+
+        // https://github.com/gruntjs/grunt-contrib-compress
+        compress: {
+            build: {
+                options: {
+                    archive: '<%= dir.build %>/<%= pkg.name %>-<%= pkg.version %>.zip'
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.build %>',
+                    src: ['**/*'],
+                    dest: '.'
+                }]
+            }
         },
 
         // https://github.com/gruntjs/grunt-contrib-concat
         concat: {
             build: {
+                options: {
+                    banner: '<%= meta.banner %>'
+                },
                 src: [
                     'src/_intro',
                     'src/utils.js',
@@ -45,7 +67,8 @@ module.exports = function(grunt) {
 
         // https://github.com/gruntjs/grunt-contrib-clean
         clean: {
-            build: ['<%= dir.build %>']
+            build: ['<%= dir.build %>'],
+            docs: ['docs/']
         },
 
         // https://github.com/gruntjs/grunt-contrib-jshint
@@ -82,9 +105,10 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 options: {
+                    banner: '<%= meta.banner %>',
                     report: 'min',
                     sourceMap: '<%= dir.build %>js/tmv.min.map',
-                    sourceMappingURL: 'tmv.min.js'
+                    sourceMappingURL: 'tmv.min.map'
                 },
                 files: {
                     '<%= dir.build %>js/tmv.min.js': '<%= dir.build %>js/tmv.js'
@@ -93,12 +117,26 @@ module.exports = function(grunt) {
         },
 
         // https://github.com/gruntjs/grunt-contrib-watch
-        watch: {}
+        watch: {},
+
+        // https://github.com/gruntjs/grunt-contrib-yuidoc
+        yuidoc: {
+            build: {
+                name: '<%= pkg.name %>',
+                description: '<%= pkg.description %>',
+                version: '<%= pkg.version %>',
+                options: {
+                    paths: 'src/',
+                    outdir: '<%= dir.build %>docs/'
+                }
+            }
+        }
 
     });
 
     // plugins
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -106,6 +144,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-yuidoc');
 
     // tasks
     grunt.registerTask('default', 'watch');
@@ -114,17 +153,14 @@ module.exports = function(grunt) {
         'qunit'
     ]);
 
-    grunt.registerTask('test-build', [
-        'qunit:build'
-    ]);
-
     grunt.registerTask('build', [
         'jshint:src',
         'clean:build',
         'copy:build',
         'less:build',
         'concat:build',
-        'uglify:build'
+        'uglify:build',
+        'yuidoc:build'
     ]);
 
     grunt.registerTask('release', [

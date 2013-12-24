@@ -23,7 +23,7 @@
  *     widget.test('lorem ipsum'); // => writes to console "lorem ipsum"
  * @return {Function}
  */
-var Observable = (function() {
+EDM.Observable = (function() {
 
     /**
      * List of events
