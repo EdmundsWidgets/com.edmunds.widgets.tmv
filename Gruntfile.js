@@ -114,10 +114,6 @@ module.exports = function(grunt) {
         'qunit'
     ]);
 
-    grunt.registerTask('test-build', [
-        'qunit:build'
-    ]);
-
     grunt.registerTask('build', [
         'jshint:src',
         'clean:build',
