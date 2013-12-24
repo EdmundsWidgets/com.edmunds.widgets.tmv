@@ -1,4 +1,10 @@
-var $ = (function() {
+/**
+ * This module contains helpers.
+ * @static
+ * @class Util
+ * @namespace EDM
+ */
+var $ = EDM.Util = (function() {
     var util = {},
         // prototypes
         arrayProto = Array.prototype,

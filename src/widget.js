@@ -3,11 +3,12 @@
  * @constructor
  * @class Widget
  * @namespace EDM
+ * @extends EDM.Observable
  * @example
  *      // create new instance of the Widget
  *      var widget = new Widget();
  */
-function Widget(apiKey, options) {
+EDM.Widget = function(apiKey, options) {
 
     var
         /**
@@ -137,13 +138,13 @@ function Widget(apiKey, options) {
 
     _configure.apply(this, arguments);
 
-}
+};
 
-Widget.prototype.destroy = function() {
+EDM.Widget.prototype.destroy = function() {
     var root = this.getRootElement();
     if (root !== null) {
         root.remove();
     }
 };
 
-Observable.call(Widget.prototype);
+EDM.Observable.call(EDM.Widget.prototype);

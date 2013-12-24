@@ -1,6 +1,5 @@
 /**
- * This event fires when widget rendered.
- * @event render
+ * @for EDM.TMV
  */
 
 /**

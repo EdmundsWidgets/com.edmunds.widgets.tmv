@@ -84,7 +84,7 @@ function TMV(apiKey, options) {
          */
         _zipTooltipElement;
 
-    Widget.apply(this, arguments);
+    EDM.Widget.apply(this, arguments);
 
     /**
      * Render widget html.

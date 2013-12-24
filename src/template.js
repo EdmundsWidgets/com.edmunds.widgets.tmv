@@ -1,4 +1,8 @@
 /**
+ * @for EDM.TMV
+ */
+
+/**
  * `template` HTML template - widget view
  * @property template
  * @static
