@@ -7,6 +7,10 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        meta: {
+            banner: '/*! <%= pkg.description %> - v<%= pkg.version %> */'
+        },
+
         dir: {
             build: 'dist/'
         },
@@ -14,6 +18,9 @@ module.exports = function(grunt) {
         // https://github.com/gruntjs/grunt-contrib-concat
         concat: {
             build: {
+                options: {
+                    banner: '<%= meta.banner %>'
+                },
                 src: [
                     'src/_intro',
                     'src/utils.js',
@@ -82,6 +89,7 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 options: {
+                    banner: '<%= meta.banner %>',
                     report: 'min',
                     sourceMap: '<%= dir.build %>js/tmv.min.map',
                     sourceMappingURL: 'tmv.min.js'
