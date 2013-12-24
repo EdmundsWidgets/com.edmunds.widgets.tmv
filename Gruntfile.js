@@ -15,6 +15,21 @@ module.exports = function(grunt) {
             build: 'dist/'
         },
 
+        // https://github.com/gruntjs/grunt-contrib-compress
+        compress: {
+            build: {
+                options: {
+                    archive: '<%= dir.build %>/<%= pkg.name %>-<%= pkg.version %>.zip'
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.build %>',
+                    src: ['**/*'],
+                    dest: '.'
+                }]
+            }
+        },
+
         // https://github.com/gruntjs/grunt-contrib-concat
         concat: {
             build: {
@@ -121,6 +136,7 @@ module.exports = function(grunt) {
 
     // plugins
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
