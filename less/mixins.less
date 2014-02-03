@@ -96,3 +96,10 @@
   background: linear-gradient(to bottom,  @startColor 0%,@endColor 100%); // W3C
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", @startColor, @endColor)); // IE6-9
 }
+
+// Box sizing
+.box-sizing(@value) {
+  -webkit-box-sizing: @value;
+     -moz-box-sizing: @value;
+          box-sizing: @value;
+}
