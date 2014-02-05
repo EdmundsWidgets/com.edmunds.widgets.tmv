@@ -1,6 +1,6 @@
 {
   "name": "com.edmunds.widgets.tmv",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Edmunds True Market Value Widget",
   "private": true,
   "ignore": [
@@ -11,6 +11,6 @@
     "tests"
   ],
   "devDependencies": {
-    "qunit": "~1.12.0"
+    "qunit": "1.12.0"
   }
 }
