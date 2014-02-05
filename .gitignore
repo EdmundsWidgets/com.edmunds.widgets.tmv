@@ -1,5 +1,6 @@
 ### Project folders
 dist/
+target/
 
 ### File extensions
 *.diff
