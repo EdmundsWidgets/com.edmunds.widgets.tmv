@@ -150,22 +150,17 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'watch');
 
     grunt.registerTask('test', [
+        'jshint:src',
         'qunit'
     ]);
 
     grunt.registerTask('build', [
-        'jshint:src',
-        'clean:build',
+        'test',
         'copy:build',
         'less:build',
         'concat:build',
         'uglify:build',
         'yuidoc:build'
-    ]);
-
-    grunt.registerTask('release', [
-        'build',
-        'test'
     ]);
 
 };
