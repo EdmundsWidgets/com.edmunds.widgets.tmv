@@ -592,7 +592,7 @@ function TMV(apiKey, options) {
 
     this.showError = function(text) {
         var root = this.getRootElement(),
-            error = new EDM.nvc.MessageDialog();
+            error = new TMV.MessageDialog();
         root.appendChild(error.render({
             isSuccess: false,
             text: text || [

@@ -46,6 +46,7 @@ module.exports = function(grunt) {
                     'src/proto.js',
                     'src/template.js',
                     'src/tooltips.js',
+                    'src/message-dialog.js',
                     'src/google-analytics.js',
                     'src/_outro'
                 ],
