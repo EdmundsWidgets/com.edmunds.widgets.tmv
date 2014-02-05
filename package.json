@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "install": "bower install",
-    "test": "grunt release"
+    "test": "grunt test && mvn clean test -q"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -19,5 +19,12 @@
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-yuidoc": "~0.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EdmundsWidgets/com.edmunds.widgets.tmv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EdmundsWidgets/com.edmunds.widgets.tmv/issues"
   }
 }
