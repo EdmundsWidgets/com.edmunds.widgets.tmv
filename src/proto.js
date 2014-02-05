@@ -369,7 +369,7 @@ proto.onZipLoad = function(data) {
  */
 proto.onMakesLoad = function(data) {
     var records = this.parseMakes(data);
-    if (data.error) {
+    if (data.error || data.errorType) {
         this.resetMakes('Makes not found');
         this.showError();
         return this;
@@ -388,7 +388,7 @@ proto.onMakesLoad = function(data) {
 proto.onModelsLoad = function(data) {
     var records = this.parseModels(data);
     this.enableMakes();
-    if (data.error) {
+    if (data.error || data.errorType) {
         this.resetModels('Models not found');
         this.showError();
         return this;
@@ -429,7 +429,7 @@ proto.onStylesLoad = function(data) {
     this.enableMakes();
     this.enableModels();
     this.enableYears();
-    if (data.error) {
+    if (data.error || data.errorType) {
         this.resetStyles('Styles not found');
         this.showError();
         return this;
