@@ -80,6 +80,13 @@ module.exports = function(grunt) {
             src: ['src/**/*.js']
         },
 
+        // https://github.com/karma-runner/grunt-karma
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
+        },
+
         // https://github.com/gruntjs/grunt-contrib-less
         less: {
             build: {
@@ -140,16 +147,18 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
+    grunt.loadNpmTasks('grunt-karma');
 
     // tasks
     grunt.registerTask('default', 'watch');
 
     grunt.registerTask('test', [
-        'jshint:src'
+        'build',
+        'karma:unit'
     ]);
 
     grunt.registerTask('build', [
-        'test',
+        'jshint:src',
         'copy:build',
         'less:build',
         'concat:build',
