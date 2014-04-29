@@ -30,7 +30,7 @@ TMV.template = [
         '</div>',
         '<div class="<%= baseClass %>-footer">',
             '<a href="http://developer.edmunds.com/tmv_widget_terms" class="copy" target="_blank">Legal Notice</a>',
-            '<div class="logo">Built by<a href="http://www.edmunds.com/" target="_blank"></a></div>',
+            '<div class="logo">A service of<a href="http://www.edmunds.com/" target="_blank"></a></div>',
         '</div>',
     '</div>'
 ].join('');
