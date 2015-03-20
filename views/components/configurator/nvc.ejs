@@ -1,0 +1,20 @@
+<form id="widget-configurator" class="well well-small well-configurator">
+	<fieldset>
+		<legend>Primary Options</legend>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/vehicle-api-key.ejs %>
+		<% include section/dealer-api-key.ejs %>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/zip-code.ejs %>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/makes.ejs %>
+		<% include section/tabs-to-display.ejs %>
+		<% include section/dealer-keywords.ejs %>
+	</fieldset>
+	<fieldset>
+		<legend>Appearance</legend>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/theme.ejs %>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/color-scheme.ejs %>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/width.ejs %>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/border-width.ejs %>
+		<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/border-radius.ejs %>
+	</fieldset>
+	<% include ../../../bower_components/edmunds-configurator-sdk/components/configurator/section/actions.ejs %>
+</form><!--./widget-configurator -->
